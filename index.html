@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CREATEZ Transportkoordination – Zuverlässig. Flexibel. NRW.</title>
+<meta name="description" content="CREATEZ koordiniert Transportlösungen über geprüfte Einsatzpartner in NRW. Kurzfristig verfügbar – jetzt Auftrag anfragen.">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #1a1a1a;
+    --border: #2a2a2a;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --white: #f5f5f5;
+    --gray: #999;
+    --green: #25D366;
+    --blue: #2563eb;
+    --radius: 10px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  header {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  nav a {
+    color: var(--gray);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  nav a:hover, nav a:focus { color: var(--gold); outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
+
+  .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 1;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--white);
+  }
+  h1 em { font-style: normal; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #bbb;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .btn-primary { background: var(--gold); color: var(--black); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+  .btn-whatsapp { background: var(--green); color: #fff; }
+  .btn-whatsapp:hover { background: #20b95a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+  .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .trust-bar {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+  .trust-item .icon { color: var(--gold); font-size: 1.1rem; }
+
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .section-intro {
+    font-size: 1.05rem;
+    color: #aaa;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .service-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+  .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+
+  .disclaimer {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.6;
+  }
+  .disclaimer strong { color: var(--gold); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    counter-reset: steps;
+  }
+  .process-step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    position: relative;
+    counter-increment: steps;
+  }
+  .process-step::before {
+    content: counter(steps);
+    position: absolute;
+    top: -14px;
+    left: 1.75rem;
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 0.8rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .process-step p { font-size: 0.88rem; color: var(--gray); }
+
+  .partner-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .partner-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .partner-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .partner-info p { font-size: 0.9rem; color: var(--gray); }
+  .partner-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  #kontakt { background: var(--dark); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+  .contact-info .icon { color: var(--gold); width: 20px; text-align: center; }
+  .contact-info a { color: var(--white); text-decoration: none; }
+  .contact-info a:hover { color: var(--gold); }
+  .contact-ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.9;
+  }
+  footer a { color: #666; text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    header { padding: 1rem; }
+    nav { display: none; }
+    .trust-bar { gap: 1.5rem; }
+    section { padding: 3.5rem 1rem; }
+    .btn { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+<header role="banner">
+  <a href="/" class="logo" aria-label="CREATEZ Startseite">CREATE<span>Z</span></a>
+  <nav aria-label="Hauptnavigation">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-content">
+      <div class="hero-badge">🚚 Transportkoordination NRW</div>
+      <h1 id="hero-heading">
+        Transportaufträge.<br>
+        <em>Koordiniert. Zuverlässig.</em><br>
+        Kurzfristig verfügbar.
+      </h1>
+      <p class="hero-sub">
+        CREATEZ GmbH koordiniert Kurier- und Transportlösungen über geprüfte Einsatzpartner im Raum NRW – flexibel, schnell und auf Anfrage verfügbar.
+      </p>
+      <div class="btn-group">
+        <a href="https://createz-transport-app.vercel.app" class="btn btn-primary" aria-label="Transportauftrag einreichen">
+          🚚 Auftrag einreichen
+        </a>
+        <a href="https://wa.me/4915569062478?text=Hallo%2C%20ich%20habe%20einen%20Transportauftrag%20f%C3%BCr%20CREATEZ." class="btn btn-whatsapp" aria-label="Per WhatsApp anfragen">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar" aria-label="Vertrauensmerkmale">
+    <div class="trust-item"><span class="icon" aria-hidden="true">✓</span> Eingetragene GmbH · HRB 13422</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✓</span> Kurzfristig verfügbar</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✓</span> Kein eigener Fuhrpark · Kein Leerversprechen</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✓</span> Raum NRW &amp; deutschlandweit</div>
+  </div>
+
+  <section id="leistungen" aria-labelledby="leistungen-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">Was wir tun</div>
+      <h2 id="leistungen-heading">Unsere Leistungen</h2>
+      <div class="disclaimer" role="note">
+        <span aria-hidden="true">ℹ️</span>
+        <span><strong>Hinweis:</strong> CREATEZ GmbH betreibt keinen eigenen Fuhrpark. Alle Transporte werden über geprüfte, flexible Einsatzpartner koordiniert und abgewickelt – transparent und zuverlässig.</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">⚡</div>
+          <h3>Kurzfristige Anfragen</h3>
+          <p>Schnelle Reaktionszeit bei kurzfristigen Transport- und Kurieraufträgen über unser Partnernetzwerk.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">🤝</div>
+          <h3>Einsatzpartner-Netzwerk</h3>
+          <p>Geprüfte und verfügbare Einsatzpartner – koordiniert durch CREATEZ, zuverlässig ausgeführt.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">📋</div>
+          <h3>Vollständige Dokumentation</h3>
+          <p>Jede Abstimmung wird dokumentiert. Sie erhalten klare Rückmeldungen zu Status und Durchführung.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">🔧</div>
+          <h3>Engpass-Unterstützung</h3>
+          <p>Bei Kapazitätsengpässen koordinieren wir schnell verfügbare Partnerkapazitäten für Ihren Betrieb.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf" aria-labelledby="ablauf-heading" style="background: var(--dark);">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">Wie es funktioniert</div>
+      <h2 id="ablauf-heading">In 4 Schritten zum Auftrag</h2>
+      <p class="section-intro">Einfach, schnell und transparent – so läuft die Zusammenarbeit mit CREATEZ ab.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Anfrage senden</h3>
+          <p>Per Formular oder WhatsApp – mit Abhol- und Lieferort sowie Wunschtermin.</p>
+        </div>
+        <div class="process-step">
+          <h3>Rückmeldung</h3>
+          <p>Wir prüfen Verfügbarkeit und melden uns kurzfristig mit einer verbindlichen Antwort.</p>
+        </div>
+        <div class="process-step">
+          <h3>Bestätigung</h3>
+          <p>Bei Zusage erhalten Sie eine Auftragsbestätigung. Klar, dokumentiert, verbindlich.</p>
+        </div>
+        <div class="process-step">
+          <h3>Durchführung</h3>
+          <p>Unser Einsatzpartner führt den Auftrag aus. CREATEZ bleibt Ihr Ansprechpartner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="partner-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">Unser Netzwerk</div>
+      <h2 id="partner-heading">Einsatzpartner</h2>
+      <p class="section-intro">Unsere Partner werden von CREATEZ koordiniert und eingesetzt – nicht eigenständig tätig.</p>
+      <div class="partner-card">
+        <div class="partner-avatar" aria-hidden="true">🚐</div>
+        <div class="partner-info">
+          <h3>Karout Transporte</h3>
+          <p>Kurier- und Transportdienstleistungen im Raum NRW · Kurzfristig verfügbar</p>
+          <span class="partner-badge">✓ Geprüfter Einsatzpartner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="kontakt-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">Anfrage &amp; Kontakt</div>
+      <h2 id="kontakt-heading">Jetzt Auftrag anfragen</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><span class="icon" aria-hidden="true">🏢</span> <strong>CREATEZ GmbH</strong></p>
+          <p><span class="icon" aria-hidden="true">📍</span> Eckeseyer Str. 167 · 58089 Hagen</p>
+          <p><span class="icon" aria-hidden="true">👤</span> Rui Macedo Santos (Geschäftsführer)</p>
+          <p><span class="icon" aria-hidden="true">📞</span> <a href="tel:+4915569062478">+49 155 69062478</a></p>
+          <p><span class="icon" aria-hidden="true">✉️</span> <a href="mailto:rui.macedo@createz.de">rui.macedo@createz.de</a></p>
+        </div>
+        <div class="contact-ctas">
+          <a href="https://createz-transport-app.vercel.app" class="btn btn-primary">
+            🚚 Transportauftrag einreichen
+          </a>
+          <a href="https://wa.me/4915569062478?text=Hallo%20CREATEZ%2C%20ich%20m%C3%B6chte%20einen%20Transportauftrag%20anfragen." class="btn btn-whatsapp">
+            💬 Direkt per WhatsApp anfragen
+          </a>
+          <a href="mailto:rui.macedo@createz.de?subject=Transportanfrage" class="btn btn-outline">
+            ✉️ Per E-Mail anfragen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <p>
+    <strong>CREATEZ GmbH</strong> · Eckeseyer Str. 167 · 58089 Hagen<br>
+    Geschäftsführer: Rui Macedo Santos · Amtsgericht Hagen HRB 13422 · USt-IdNr.: DE460051708<br>
+    Tel.: +49 155 69062478 · <a href="mailto:rui.macedo@createz.de">rui.macedo@createz.de</a> · <a href="https://www.createz.de">www.createz.de</a>
+  </p>
+  <p style="margin-top:0.75rem;">
+    <a href="#impressum">Impressum</a> &nbsp;|&nbsp; <a href="#datenschutz">Datenschutz</a>
+  </p>
+  <div id="impressum" style="margin-top:1.25rem; font-size:0.78rem; color:#444; max-width:700px; margin-left:auto; margin-right:auto;">
+    Impressum gemäß §5 TMG: CREATEZ GmbH · Eckeseyer Str. 167 · 58089 Hagen · GF: Rui Macedo Santos · HRB 13422 AG Hagen · USt-IdNr.: DE460051708 · StNr.: 321/5773/3897
+  </div>
+</footer>
+
+</body>
+</html>
